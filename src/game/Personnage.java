@@ -1,5 +1,7 @@
 package game;
 
+import java.util.Scanner;
+
 public abstract class Personnage {
 
     int _niveau;
@@ -14,13 +16,15 @@ public abstract class Personnage {
 
     /**
      * Construit un personnage
+     * @param joueur nom du joueur
      * @param nom nom du personnage
      * @param force la force
      * @param agilite l'agilité
      * @param intelligence l'intelligence
      */
-    public Personnage(String nom, int force, int agilite, int intelligence) {
+    public Personnage(String joueur, String nom, int force, int agilite, int intelligence) {
         _nomPersonnage = nom;
+        _joueur = joueur;
         _force = force;
         _agilite = agilite;
         _intelligence = intelligence;
@@ -47,7 +51,7 @@ public abstract class Personnage {
      * Indique le tpe de personnage
      * @return Guerrier ou Mage ou Rodeur
      */
-    public abstract String typePersonnage();
+    public abstract TypePersonnage typePersonnage();
 
     public String get_nomAttaqueBasique() {
         return _nomAttaqueBasique;
@@ -66,6 +70,9 @@ public abstract class Personnage {
         _vie -= valeur;
         if (_vie < 0)
             _vie = 0;
+
+        if (_vie == 0)
+            System.out.println(_joueur + " est mort");
     }
 
     /**
@@ -82,9 +89,6 @@ public abstract class Personnage {
         _vie = 5 * _niveau;
     }
 
-    public void set_joueur(String joueur) { _joueur = joueur; }
-    public String get_joueur() { return _joueur; }
-
     /**
      * Indique si le personnage est en vie.
      * @return true si vivant sinon false
@@ -92,11 +96,25 @@ public abstract class Personnage {
     public boolean estVivant() { return _vie > 0; }
 
     public String get_nomPersonnage() { return _nomPersonnage; }
-    public void set_nomPersonnage(String nom) { _nomPersonnage = nom; }
-
+    public String get_joueur() { return _joueur; }
     public int get_niveau() { return _niveau; }
     public int get_vie() { return _vie; }
     public int get_force() { return _force; }
     public int get_agilite() { return _agilite; }
     public int get_intelligence() { return _intelligence; }
+
+    /**
+     * Attaque d'un personnage
+     * @param adversaire persannage attaqué
+     */
+    public void attaquer(Personnage adversaire) {
+        System.out.println(_joueur + " (" + _vie + " vitalité) veuillez choisir votre action (1: Attaque Basique, 2: Attaque Spéciale)");
+        Scanner sc = new Scanner(System.in);
+        int choix = sc.nextInt();
+
+        if (choix == 1)
+            attaqueBasique(adversaire);
+        else if (choix == 2)
+            attaqueSpeciale(adversaire);
+    }
 }
