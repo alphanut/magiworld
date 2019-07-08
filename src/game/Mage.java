@@ -6,13 +6,14 @@ public class Mage extends Personnage {
 
     /**
      * Construit un mage
+     * @param joueur nom du joueur
      * @param nom le nom
      * @param force la force
      * @param agilite l'agilité
      * @param intelligence l'intelligence
      */
-    public Mage(String nom, int force, int agilite, int intelligence) {
-        super(nom, force, agilite, intelligence);
+    public Mage(String joueur, String nom, int force, int agilite, int intelligence) {
+        super(joueur, nom, force, agilite, intelligence);
         _nomAttaqueBasique = "Boule de Feu";
         _nomAttaqueSpeciale = "Soin";
         _vieInitiale = _vie;
@@ -40,8 +41,8 @@ public class Mage extends Personnage {
     }
 
     @Override
-    public String typePersonnage() {
-        return "Mage";
+    public TypePersonnage typePersonnage() {
+        return TypePersonnage.Mage;
     }
 
     /**

@@ -4,13 +4,14 @@ public class Guerrier extends Personnage {
 
     /**
      * Construit un guerrier
+     * @param joueur nom du joueur
      * @param nom le nom
      * @param force la force
      * @param agilite l'agilité
      * @param intelligence l'intelligence
      */
-    public Guerrier(String nom, int force, int agilite, int intelligence) {
-        super(nom, force, agilite, intelligence);
+    public Guerrier(String joueur, String nom, int force, int agilite, int intelligence) {
+        super(joueur, nom, force, agilite, intelligence);
         _nomAttaqueBasique = "Coup d'Epée";
         _nomAttaqueSpeciale = "Coup de Rage";
     }
@@ -39,7 +40,7 @@ public class Guerrier extends Personnage {
     }
 
     @Override
-    public String typePersonnage() {
-        return "Guerrier";
+    public TypePersonnage typePersonnage() {
+        return TypePersonnage.Guerrier;
     }
 }

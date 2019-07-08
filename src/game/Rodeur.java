@@ -3,13 +3,14 @@ package game;
 public class Rodeur extends Personnage {
     /**
      * Construit un rodeur
+     * @param joueur nom du joueur
      * @param nom le nom
      * @param force la force
      * @param agilite l'agilité
      * @param intelligence l'intelligence
      */
-    public Rodeur(String nom, int force, int agilite, int intelligence) {
-        super(nom, force, agilite, intelligence);
+    public Rodeur(String joueur, String nom, int force, int agilite, int intelligence) {
+        super(joueur, nom, force, agilite, intelligence);
         _nomAttaqueBasique = "Tir à l'Arc";
         _nomAttaqueSpeciale = "Concentration";
     }
@@ -48,7 +49,7 @@ public class Rodeur extends Personnage {
     }
 
     @Override
-    public String typePersonnage() {
-        return "Rodeur";
+    public TypePersonnage typePersonnage() {
+        return TypePersonnage.Rodeur;
     }
 }
