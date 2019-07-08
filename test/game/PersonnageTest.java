@@ -10,8 +10,8 @@ public class PersonnageTest {
     @Test
     public void When_GuerrierAttaqueBasique_Then_AdversairePerdVie() {
 
-        Guerrier guerrier = new Guerrier("Woarg", 10, 0, 0);
-        Mage mage = new Mage("Abracadabra", 0, 0, 10);
+        Guerrier guerrier = new Guerrier("Joueur 1", "Woarg", 10, 0, 0);
+        Mage mage = new Mage("Joueur 2", "Abracadabra", 0, 0, 10);
         int vieMageAvant = mage.get_vie();
         guerrier.attaqueBasique(mage);
         int viePerduMage = vieMageAvant - mage.get_vie();
@@ -22,8 +22,8 @@ public class PersonnageTest {
     @Test
     public void When_GuerrierAttaqueSpeciale_Then_AdversairePerdDoubleVieEtGuerrierPerdVie() {
 
-        Guerrier guerrier = new Guerrier("Woarg", 10, 0, 0);
-        Mage mage = new Mage("Abracadabra", 0, 0, 10);
+        Guerrier guerrier = new Guerrier("Joueur 1", "Woarg", 10, 0, 0);
+        Mage mage = new Mage("Joueur 2", "Abracadabra", 0, 0, 10);
         int vieMageAvant = mage.get_vie();
         int vieGuerrierAvant = guerrier.get_vie();
         guerrier.attaqueSpeciale(mage);
@@ -36,8 +36,8 @@ public class PersonnageTest {
 
     @Test
     public void When_MageAttaqueBasique_AdversairePerdVie() {
-        Mage mage = new Mage("Abracadabra", 0, 0, 10);
-        Guerrier guerrier = new Guerrier("Woarg", 10, 0, 0);
+        Mage mage = new Mage("Joueur 1", "Abracadabra", 0, 0, 10);
+        Guerrier guerrier = new Guerrier("Joueur 2", "Woarg", 10, 0, 0);
         int vieGuerrierAvant = guerrier.get_vie();
         mage.attaqueBasique(guerrier);
         int viePerdue = vieGuerrierAvant - guerrier.get_vie();
@@ -47,8 +47,8 @@ public class PersonnageTest {
 
     @Test
     public void When_MageAttaqueSpeciale_Then_MageGainDeVie() {
-        Mage mage = new Mage("Abracadabra", 0, 0, 10);
-        Guerrier guerrier = new Guerrier("Woarg", 10, 0, 0);
+        Mage mage = new Mage("Joueur 1", "Abracadabra", 0, 0, 10);
+        Guerrier guerrier = new Guerrier("Joueur 2", "Woarg", 10, 0, 0);
         guerrier.attaqueBasique(mage);
         guerrier.attaqueBasique(mage);
 
@@ -61,8 +61,8 @@ public class PersonnageTest {
 
     @Test
     public void When_MageAttaqueSpeciale_Then_GainDeVieMajore() {
-        Mage mage = new Mage("Abracadabra", 0, 0, 10);
-        Guerrier guerrier = new Guerrier("Woarg", 10, 0, 0);
+        Mage mage = new Mage("Joueur 1", "Abracadabra", 0, 0, 10);
+        Guerrier guerrier = new Guerrier("Joueur 2", "Woarg", 10, 0, 0);
         guerrier.attaqueBasique(mage);
 
         int vieAvant = mage.get_vie();
@@ -75,8 +75,8 @@ public class PersonnageTest {
 
     @Test
     public void When_RodeurAttaqueBasique_Then_AdversairePerdVie() {
-        Rodeur rodeur = new Rodeur("Ninja", 0, 10, 0);
-        Guerrier guerrier = new Guerrier("Woarg", 10, 0, 0);
+        Rodeur rodeur = new Rodeur("Joueur 1", "Ninja", 0, 10, 0);
+        Guerrier guerrier = new Guerrier("Joueur 2", "Woarg", 10, 0, 0);
         int vieAvant = guerrier.get_vie();
         rodeur.attaqueBasique(guerrier);
         int viePerdue = vieAvant - guerrier.get_vie();
@@ -86,7 +86,7 @@ public class PersonnageTest {
 
     @Test
     public void When_RodeurAttaqueSpeciale_Then_RodeurGainAgiliteEtNiveau() {
-        Rodeur rodeur = new Rodeur("Ninja", 0, 10, 0);
+        Rodeur rodeur = new Rodeur("Joueur 1", "Ninja", 0, 10, 0);
         int agiliteAvant = rodeur.get_agilite();
         int niveauAvant = rodeur.get_niveau();
         rodeur.attaqueSpeciale(null);
@@ -100,14 +100,14 @@ public class PersonnageTest {
 
     @Test
     public void When_PersonnageConstruit_Then_CalculNiveau() {
-        Rodeur rodeur = new Rodeur("Ninja", 5, 10, 7);
+        Rodeur rodeur = new Rodeur("Joueur 1", "Ninja", 5, 10, 7);
 
         assertEquals(22, rodeur.get_niveau());
     }
 
     @Test
     public void When_PersonnageConstruit_Then_CalculVie() {
-        Rodeur rodeur = new Rodeur("Ninja", 5, 10, 7);
+        Rodeur rodeur = new Rodeur("Joueur 1", "Ninja", 5, 10, 7);
 
         assertEquals(5*22, rodeur.get_vie());
     }
