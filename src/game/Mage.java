@@ -53,4 +53,6 @@ public class Mage extends Personnage {
         if (_vie > _vieInitiale)
             _vie = _vieInitiale;
     }
+
+    public int get_vieInitiale() { return _vieInitiale; }
 }
