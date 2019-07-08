@@ -9,6 +9,7 @@ public abstract class Personnage {
     int _intelligence;
     String _nomAttaqueBasique;
     String _nomAttaqueSpeciale;
+    String _joueur;
 
     /**
      * Construit un personnage
@@ -67,4 +68,13 @@ public abstract class Personnage {
     protected void initialiserVie() {
         _vie = 5 * _niveau;
     }
+
+    public void set_joueur(String joueur) { _joueur = joueur; }
+    public String get_joueur() { return _joueur; }
+
+    /**
+     * Indique si le personnage est en vie.
+     * @return true si vivant sinon false
+     */
+    public boolean estVivant() { return _vie > 0; }
 }
