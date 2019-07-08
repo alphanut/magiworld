@@ -4,12 +4,13 @@ public class Guerrier extends Personnage {
 
     /**
      * Construit un guerrier
-     * @param force la forece
+     * @param nom le nom
+     * @param force la force
      * @param agilite l'agilité
      * @param intelligence l'intelligence
      */
-    public Guerrier(int force, int agilite, int intelligence) {
-        super(force, agilite, intelligence);
+    public Guerrier(String nom, int force, int agilite, int intelligence) {
+        super(nom, force, agilite, intelligence);
         _nomAttaqueBasique = "Coup d'Epée";
         _nomAttaqueSpeciale = "Coup de Rage";
     }
@@ -20,6 +21,8 @@ public class Guerrier extends Personnage {
      */
     @Override
     public void attaqueBasique(Personnage adversaire) {
+
+        System.out.println(_joueur + " utilise " + _nomAttaqueBasique + " et inflige " + _force + " dommages.");
         adversaire.subirDegats(_force);
     }
 
@@ -29,7 +32,14 @@ public class Guerrier extends Personnage {
      */
     @Override
     public void attaqueSpeciale(Personnage adversaire) {
-        adversaire.subirDegats(2 * _force);
+        int degats = 2 * _force;
+        System.out.println(_joueur + " utilise " + _nomAttaqueSpeciale + " et inflige " + degats + " dommages.");
+        adversaire.subirDegats(degats);
         subirDegats(_force / 2);
+    }
+
+    @Override
+    public String typePersonnage() {
+        return "Guerrier";
     }
 }

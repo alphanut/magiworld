@@ -3,12 +3,13 @@ package game;
 public class Rodeur extends Personnage {
     /**
      * Construit un rodeur
+     * @param nom le nom
      * @param force la force
      * @param agilite l'agilité
      * @param intelligence l'intelligence
      */
-    public Rodeur(int force, int agilite, int intelligence) {
-        super(force, agilite, intelligence);
+    public Rodeur(String nom, int force, int agilite, int intelligence) {
+        super(nom, force, agilite, intelligence);
         _nomAttaqueBasique = "Tir à l'Arc";
         _nomAttaqueSpeciale = "Concentration";
     }
@@ -31,6 +32,7 @@ public class Rodeur extends Personnage {
      */
     @Override
     public void attaqueBasique(Personnage adversaire) {
+        System.out.println(_joueur + " utilise " + _nomAttaqueBasique + " et inflige " + _agilite + " dommages.");
         adversaire.subirDegats(_agilite);
     }
 
@@ -40,6 +42,13 @@ public class Rodeur extends Personnage {
      */
     @Override
     public void attaqueSpeciale(Personnage adversaire) {
-        ameliorerAgilite(_niveau / 2);
+        int agilite = _niveau / 2;
+        System.out.println(_joueur + " utilise " + _nomAttaqueSpeciale + " et gagne " + agilite + " en agilité.");
+        ameliorerAgilite(agilite);
+    }
+
+    @Override
+    public String typePersonnage() {
+        return "Rodeur";
     }
 }

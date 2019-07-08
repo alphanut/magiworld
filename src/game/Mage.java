@@ -6,12 +6,13 @@ public class Mage extends Personnage {
 
     /**
      * Construit un mage
+     * @param nom le nom
      * @param force la force
      * @param agilite l'agilité
      * @param intelligence l'intelligence
      */
-    public Mage(int force, int agilite, int intelligence) {
-        super(force, agilite, intelligence);
+    public Mage(String nom, int force, int agilite, int intelligence) {
+        super(nom, force, agilite, intelligence);
         _nomAttaqueBasique = "Boule de Feu";
         _nomAttaqueSpeciale = "Soin";
         _vieInitiale = _vie;
@@ -23,6 +24,7 @@ public class Mage extends Personnage {
      */
     @Override
     public void attaqueBasique(Personnage adversaire) {
+        System.out.println(_joueur + " utilise " + _nomAttaqueBasique + " et inflige " + _intelligence + " dommages.");
         adversaire.subirDegats(_intelligence);
     }
 
@@ -32,7 +34,14 @@ public class Mage extends Personnage {
      */
     @Override
     public void attaqueSpeciale(Personnage adversaire) {
-        soigner(_intelligence * 2);
+        int vie = _intelligence * 2;
+        System.out.println(_joueur + " utilise " + _nomAttaqueSpeciale + " et gagne " + vie + " en vitalité.");
+        soigner(vie);
+    }
+
+    @Override
+    public String typePersonnage() {
+        return "Mage";
     }
 
     /**
