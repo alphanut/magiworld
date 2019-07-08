@@ -93,4 +93,10 @@ public abstract class Personnage {
 
     public String get_nomPersonnage() { return _nomPersonnage; }
     public void set_nomPersonnage(String nom) { _nomPersonnage = nom; }
+
+    public int get_niveau() { return _niveau; }
+    public int get_vie() { return _vie; }
+    public int get_force() { return _force; }
+    public int get_agilite() { return _agilite; }
+    public int get_intelligence() { return _intelligence; }
 }
