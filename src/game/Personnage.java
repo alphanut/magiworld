@@ -103,6 +103,8 @@ public abstract class Personnage {
     public int get_force() { return _force; }
     public int get_agilite() { return _agilite; }
     public int get_intelligence() { return _intelligence; }
+	
+	public bool isIntel() { return _intelligence; }
 
     /**
      * Attaque d'un personnage
