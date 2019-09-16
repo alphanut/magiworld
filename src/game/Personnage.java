@@ -64,6 +64,7 @@ public abstract class Personnage {
     /**
      * Dégâts subis par le personnage lors d'une attaque
      * @param valeur nombre de points de vie perdu
+	 * Commentaire inutile
      */
     public void subirDegats(int valeur) {
         System.out.println(_joueur + " perd " + valeur + " points de vie");
