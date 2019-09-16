@@ -105,6 +105,8 @@ public abstract class Personnage {
     public int get_intelligence() { return _intelligence; }
 	
 	public int get_notIntel() { return !_intelligence; }
+	
+	public void connect(Personnage p) { _intelligence = p.get_intelligence(); }
 
     /**
      * Attaque d'un personnage
